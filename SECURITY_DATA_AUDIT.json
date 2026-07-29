@@ -1,7 +1,8 @@
 {
-  "audited_utc": "2026-07-29T21:51:30Z",
+  "audited_utc": "2026-07-29T22:15:30Z",
   "checks": {
     "files_over_90_mib_in_staging": 0,
+    "generated_build_install_metadata_in_staging": 0,
     "generated_cache_files_in_staging": 0,
     "high_confidence_credentials_or_private_keys": 0,
     "license_boundary_approved_and_documented": true,
@@ -19,7 +20,7 @@
     "The pre-license Zenodo ZIP must be rebuilt with LICENSE, LICENSE-CONTENT-DATA-CC-BY-4.0.txt, and LICENSES.md; Zenodo must then archive GitHub release v1.0.0, generate its DOI, resolve publicly, and pass independent remote archive byte count/SHA-256 verification."
   ],
   "github_staging_snapshot_excluding_this_report_and_release_manifest": {
-    "bytes": 3094462,
+    "bytes": 3096474,
     "files": 85,
     "largest_file": {
       "bytes": 1020263,
@@ -85,6 +86,10 @@
       "command": "git add -A; git write-tree; git archive <tree> | extract; PYTHONPATH=src python -B -m plos_nlp_release <extracted-tree>",
       "result": "passed; Git archive preserved all 86 manifested paths, byte counts, and SHA-256 values, including the certified notebook"
     },
+    "fresh_clone_editable_install": {
+      "command": "git clone <local verified commit> <temporary-directory>; python -m venv .venv; .venv/python -m pip install -e \".[dev]\"; .venv/python -m plos_nlp_release .; .venv/python -m pytest -q",
+      "result": "passed; editable-install .egg-info and narrowly scoped standard generated build/cache directories were ignored; a nested nonstandard artifacts/build file remained visible and failed verification in the regression test; clean-clone verifier passed 86 rows with zero errors; 4 tests passed"
+    },
     "python_sources": {
       "command": "python -B <in-memory compile of every staged .py file>",
       "result": "7 Python files compiled successfully"
@@ -95,11 +100,11 @@
     },
     "tests": {
       "command": "PYTHONPATH=src python -B -m pytest -q -p no:cacheprovider",
-      "result": "3 passed"
+      "result": "4 passed"
     },
     "wheel_build": {
       "command": "python -B -m pip wheel . --no-deps --no-build-isolation --wheel-dir <temporary-directory>",
-      "result": "plos_nlp_release-1.0.0-py3-none-any.whl built successfully (21,975 bytes); wheel contains all three license/scope files; generated build caches removed from staging"
+      "result": "plos_nlp_release-1.0.0-py3-none-any.whl built successfully (22,127 bytes); wheel contains all three license/scope files; generated build caches removed from staging"
     }
   },
   "version": "1.0.0"

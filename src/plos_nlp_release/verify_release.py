@@ -12,6 +12,7 @@ import argparse
 import csv
 import hashlib
 import json
+import os
 import re
 from pathlib import Path, PurePosixPath
 from typing import Any
@@ -38,7 +39,21 @@ CC_BY_4_LEGALCODE_SHA256 = (
 MAX_GITHUB_FILE_BYTES = 90 * 1024 * 1024
 
 MANIFEST_COLUMNS = ("path", "bytes", "sha256", "role", "source_origin")
-IGNORED_PARTS = {".git", "__pycache__", ".pytest_cache", ".mypy_cache", ".ruff_cache"}
+IGNORED_DIRECTORY_NAMES_ANYWHERE = {
+    ".git",
+    ".mypy_cache",
+    ".pytest_cache",
+    ".ruff_cache",
+    "__pycache__",
+}
+IGNORED_ROOT_DIRECTORY_NAMES = {
+    ".nox",
+    ".tox",
+    ".venv",
+    "build",
+    "dist",
+    "htmlcov",
+}
 IGNORED_SUFFIXES = {".pyc", ".pyo"}
 TEXT_SUFFIXES = {
     "",
@@ -124,15 +139,20 @@ def _canonical_relative_path(raw: str) -> str:
 
 def _iter_repository_files(root: Path) -> list[Path]:
     paths: list[Path] = []
-    for path in root.rglob("*"):
-        if not path.is_file():
-            continue
-        relative = path.relative_to(root)
-        if any(part in IGNORED_PARTS for part in relative.parts):
-            continue
-        if path.suffix.lower() in IGNORED_SUFFIXES:
-            continue
-        paths.append(path)
+    for directory, names, filenames in os.walk(root):
+        current = Path(directory)
+        is_root = current == root
+        names[:] = sorted(
+            name
+            for name in names
+            if name not in IGNORED_DIRECTORY_NAMES_ANYWHERE
+            and not (is_root and name in IGNORED_ROOT_DIRECTORY_NAMES)
+            and not name.casefold().endswith(".egg-info")
+        )
+        for filename in sorted(filenames):
+            path = current / filename
+            if path.suffix.lower() not in IGNORED_SUFFIXES:
+                paths.append(path)
     return sorted(paths, key=lambda item: item.relative_to(root).as_posix())
 
 
