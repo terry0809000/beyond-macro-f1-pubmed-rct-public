@@ -1,0 +1,6 @@
+model_name,fold,inner_best_macro_f1,inner_best_params_json
+S5_NumberNormalized_LogReg,1,0.7609646528322476,"{""clf__C"": 10.0, ""clf__class_weight"": null}"
+S5_NumberNormalized_LogReg,2,0.757153421985237,"{""clf__C"": 10.0, ""clf__class_weight"": null}"
+S5_NumberNormalized_LogReg,3,0.7583778289768046,"{""clf__C"": 10.0, ""clf__class_weight"": null}"
+S5_NumberNormalized_LogReg,4,0.7584329222700048,"{""clf__C"": 10.0, ""clf__class_weight"": null}"
+S5_NumberNormalized_LogReg,5,0.7584039482041972,"{""clf__C"": 10.0, ""clf__class_weight"": null}"

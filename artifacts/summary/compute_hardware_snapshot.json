@@ -1,0 +1,23 @@
+{
+  "python": "3.12.13 (main, Mar  4 2026, 09:23:07) [GCC 11.4.0]",
+  "platform": "Linux-6.6.122+-x86_64-with-glibc2.35",
+  "processor": "x86_64",
+  "cpu_count": 48,
+  "psutil_available": true,
+  "total_ram_gb": 176.88479232788086,
+  "torch_version": "2.11.0+cu128",
+  "cuda_available": true,
+  "cuda_version": "12.8",
+  "gpu_name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+  "gpu_count": 1,
+  "numpy": "2.0.2",
+  "pandas": "2.2.2",
+  "scikit-learn": "1.6.1",
+  "scipy": "1.16.3",
+  "torch": "2.11.0+cu128",
+  "transformers": "5.13.1",
+  "datasets": "4.0.0",
+  "sklearn-crfsuite": "0.5.0",
+  "joblib": "1.5.3",
+  "psutil": "5.9.5"
+}

@@ -1,0 +1,5 @@
+cell,position_features,class_weight,macro_f1,fixed_C,n_sentences,n_abstracts,reference_seed
+position_0__weight_none,False,none,0.7578313889650372,1.0,180040,15000,42
+position_1__weight_none,True,none,0.8317889204758053,1.0,180040,15000,42
+position_0__weight_balanced,False,balanced,0.7557756297555032,1.0,180040,15000,42
+position_1__weight_balanced,True,balanced,0.8263949725083564,1.0,180040,15000,42

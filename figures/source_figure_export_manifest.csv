@@ -1,0 +1,17 @@
+artifact,suffix,bytes,sha256,dpi_x,dpi_y,compression,image_mode,n_frames,width_px,height_px,width_in,height_in
+Fig1.pdf,.pdf,21467,09afc25f46d71917146d6755f8adede352e27dfdd7681a21bf066ce8426e0f21,,,not_applicable,not_applicable,,,,,
+Fig1.png,.png,207454,3d32e6248af80026523df0e7f1382b3b1c639ac301cca88b9749fe59daca8b89,,,not_applicable,not_applicable,,,,,
+Fig1.tif,.tif,1357660,abd9879e3a53489681873c983853e4919a672727cbcd39b901fee53815099721,600.0,600.0,tiff_lzw,RGB,1.0,4000.0,3429.0,6.666666666666667,5.715
+Fig1_primary_transformer_confusion_matrix_source.csv,.csv,2019,9f93f0e5d020f46a36c6aa30379fc94acce557e702b0cc5b54532d59c67de5b2,,,not_applicable,not_applicable,,,,,
+S1_fig.pdf,.pdf,33847,42161257bd99b8efc6ac1b76d51f364449f604503bf733fefe761e4cc5028d45,,,not_applicable,not_applicable,,,,,
+S1_fig.png,.png,1020263,be5556c9b93f9488191058ffee12367b07bfbfb7432b60cdbb8eeb3f0d757163,,,not_applicable,not_applicable,,,,,
+S1_fig.tif,.tif,3361252,4afc1bc043bc189f7a4918c3d8144f356eca753f4011424a7c2f523873ddb243,600.0,600.0,tiff_lzw,RGB,1.0,4419.0,4725.0,7.365,7.875
+S1_fig_source.csv,.csv,15540,a884e0610061c6986b9af12cc3aa7a460e7afdab4ed92d40482a60f67542747b,,,not_applicable,not_applicable,,,,,
+S2_fig.pdf,.pdf,31284,9befb2e6a4f05399003046c592adff952cdea22b0ad0d058c02640d84e7c30c2,,,not_applicable,not_applicable,,,,,
+S2_fig.png,.png,400064,b9084afcea089a116fa7dd7c3bbe039d90933bd22f91d264a376dc155b0c9b08,,,not_applicable,not_applicable,,,,,
+S2_fig.tif,.tif,1523932,90b5d58df6224d2b9e7a8ff2ab5fd16d8b7f10abf053611558ceec7526d2f801,600.0,600.0,tiff_lzw,RGB,1.0,4419.0,4749.0,7.365,7.915
+S2_fig_source.csv,.csv,26649,12ed7ad9fa65da55c5c08aff046dc77902858d0ba99ab03b9c2efe8128466ba6,,,not_applicable,not_applicable,,,,,
+S3_fig.pdf,.pdf,17192,9dd99dda5ba7ded98d64ea4d6e986e36895e337c1fef7d971a07013b5f89d992,,,not_applicable,not_applicable,,,,,
+S3_fig.png,.png,122186,33a784a3f77f137bc67e97a3c80fd19aa7101eb0bc12405b5273d839d0319894,,,not_applicable,not_applicable,,,,,
+S3_fig.tif,.tif,528676,4833a3e6247c3dc35c7b80f3b3c02de94a51f19ef8cb687e23849ba428515e47,600.0,600.0,tiff_lzw,RGB,1.0,4419.0,2949.0,7.365,4.915
+S3_fig_source.csv,.csv,2647,03ccac061c10d5eddae0faa0a2a99b0a72cd68aa6843789672a74e1da4be5d69,,,not_applicable,not_applicable,,,,,

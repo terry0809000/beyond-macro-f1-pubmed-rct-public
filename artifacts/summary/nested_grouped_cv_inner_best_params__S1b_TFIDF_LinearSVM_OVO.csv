@@ -1,0 +1,6 @@
+model_name,fold,inner_best_macro_f1,inner_best_params_json
+S1b_TFIDF_LinearSVM_OVO,1,0.7620204264926542,"{""clf__estimator__C"": 0.5}"
+S1b_TFIDF_LinearSVM_OVO,2,0.7605768395557351,"{""clf__estimator__C"": 0.5}"
+S1b_TFIDF_LinearSVM_OVO,3,0.7599118279565337,"{""clf__estimator__C"": 0.5}"
+S1b_TFIDF_LinearSVM_OVO,4,0.7609043781196896,"{""clf__estimator__C"": 0.5}"
+S1b_TFIDF_LinearSVM_OVO,5,0.7612565955784605,"{""clf__estimator__C"": 0.5}"

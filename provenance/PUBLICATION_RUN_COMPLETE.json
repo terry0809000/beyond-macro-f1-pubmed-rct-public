@@ -1,0 +1,25 @@
+{
+  "completion_contract_version": "plos_publication_completion_v3",
+  "status": "publication_complete",
+  "run_id": "PLOS_R1_publication_20260729T084516Z",
+  "source_notebook_release_id": "PLOS_R1_REVIEWER_ALIGNED_G4_FINAL_EXPORT_COMPLETE_CLASSICAL_PARAMS_20260729",
+  "completed_utc": "2026-07-29T13:22:47+00:00",
+  "publication_run": true,
+  "smoke_run": false,
+  "source_notebook_sha256": "f41a9b1542f4a544eea2ff2085cc096743eb6f98d166a6e2dc0af4e96590ba13",
+  "revision_export_manifest": "revision_export_manifest.csv",
+  "revision_export_manifest_sha256": "1d7af80e7768f9a8bc5a172d4fd9a73b205dd9a91393c21dc1ed216fab0989c5",
+  "n_manifested_artifacts": 83,
+  "authoritative_data_verified": true,
+  "final_systems_locked_before_test": true,
+  "requested_gpu_type": "G4",
+  "actual_gpu_name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+  "actual_gpu_vram_gb": 94.97076416015625,
+  "compute_capability": [
+    12,
+    0
+  ],
+  "bootstrap_n_replicates": 10000,
+  "bootstrap_batch_size": 64,
+  "time_limit_policy": "no_wall_clock_abort"
+}

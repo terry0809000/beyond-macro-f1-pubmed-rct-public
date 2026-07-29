@@ -1,0 +1,33 @@
+{
+  "authoritative_data_verified": true,
+  "deep_seeds": [
+    42,
+    43,
+    44
+  ],
+  "export_started_utc": "2026-07-29T13:22:43+00:00",
+  "final_systems": [
+    "S6_PositionAware_LogReg",
+    "S5_NumberNormalized_LogReg",
+    "S1_TFIDF_LinearSVM",
+    "S0_TFIDF_LogReg",
+    "S8_BiLSTMStyle_SequentialModel",
+    "S9_biomedbert_prev_plus_current",
+    "S9_scibert_prev_plus_current",
+    "S9_biomedbert_sentence_only"
+  ],
+  "final_systems_locked_before_test": true,
+  "fixed_test_disclosure": "public benchmark test split was evaluated in the original submission; corrected-run choices and comparisons were locked before predictions",
+  "perturbation_interpretation": "prediction sensitivity and consistency; not semantic correctness",
+  "pretest_selection_comparison_lock_sha256": "4e75a92aa0132d4e937ff453de7fd000b656a515e07475fc445cc8217501d96c",
+  "primary_transformer": "S9_biomedbert_prev_plus_current",
+  "public_deposit_sanitization": "The local licensed-font file path was redacted; analytical provenance is unchanged.",
+  "publication_figure_font": "Arial",
+  "publication_figure_font_file": "[REDACTED_LOCAL_VALUE]",
+  "publication_run": true,
+  "reference_seed": 42,
+  "run_id": "PLOS_R1_publication_20260729T084516Z",
+  "smoke_run": false,
+  "source_notebook_release_id": "PLOS_R1_REVIEWER_ALIGNED_G4_FINAL_EXPORT_COMPLETE_CLASSICAL_PARAMS_20260729",
+  "source_notebook_sha256": "f41a9b1542f4a544eea2ff2085cc096743eb6f98d166a6e2dc0af4e96590ba13"
+}

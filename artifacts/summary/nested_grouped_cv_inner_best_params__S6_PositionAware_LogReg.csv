@@ -1,0 +1,6 @@
+model_name,fold,inner_best_macro_f1,inner_best_params_json
+S6_PositionAware_LogReg,1,0.8299666996370818,"{""C"": 1.0, ""class_weight"": null}"
+S6_PositionAware_LogReg,2,0.8288520571979401,"{""C"": 1.0, ""class_weight"": null}"
+S6_PositionAware_LogReg,3,0.8279659109216222,"{""C"": 1.0, ""class_weight"": null}"
+S6_PositionAware_LogReg,4,0.8291107863831764,"{""C"": 1.0, ""class_weight"": null}"
+S6_PositionAware_LogReg,5,0.8298868553944132,"{""C"": 1.0, ""class_weight"": null}"

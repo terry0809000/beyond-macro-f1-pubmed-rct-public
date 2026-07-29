@@ -1,0 +1,8 @@
+contrast,delta_macro_f1,ci_low,ci_high,bootstrap_proportion_delta_gt_0,ci_method,fixed_C,n_sentences,n_abstracts,n_cluster_bootstrap,bootstrap_seed,reference_seed,analysis_role
+position_effect_unweighted,0.07395753151076812,0.07188927790382732,0.07589601177464633,1.0,95% percentile complete-abstract cluster bootstrap,1.0,180040,15000,10000,62,42,prespecified 2 x 2 factorial contrast
+position_effect_balanced,0.0706193427528532,0.06863218377109555,0.07252624289228966,1.0,95% percentile complete-abstract cluster bootstrap,1.0,180040,15000,10000,62,42,prespecified 2 x 2 factorial contrast
+weight_effect_lexical,-0.002055759209534047,-0.003626766741494766,-0.00047785140770995326,0.0051,95% percentile complete-abstract cluster bootstrap,1.0,180040,15000,10000,62,42,prespecified 2 x 2 factorial contrast
+weight_effect_position,-0.005393947967448964,-0.006724438360283478,-0.004053879733431191,0.0,95% percentile complete-abstract cluster bootstrap,1.0,180040,15000,10000,62,42,prespecified 2 x 2 factorial contrast
+position_main_effect_average,0.07228843713181066,0.07045677150608261,0.07401623630666135,1.0,95% percentile complete-abstract cluster bootstrap,1.0,180040,15000,10000,62,42,prespecified 2 x 2 factorial contrast
+weight_main_effect_average,-0.0037248535884915057,-0.004897441810392859,-0.002562651374311255,0.0,95% percentile complete-abstract cluster bootstrap,1.0,180040,15000,10000,62,42,prespecified 2 x 2 factorial contrast
+position_by_weight_interaction,-0.003338188757914917,-0.005046710196768556,-0.0015723268657625862,0.0001,95% percentile complete-abstract cluster bootstrap,1.0,180040,15000,10000,62,42,prespecified 2 x 2 factorial contrast

@@ -1,0 +1,6 @@
+model_name,fold,inner_best_macro_f1,inner_best_params_json
+S2_TFIDF_MNB,1,0.7027105793191806,"{""clf__alpha"": 0.1}"
+S2_TFIDF_MNB,2,0.6978177931056309,"{""clf__alpha"": 0.1}"
+S2_TFIDF_MNB,3,0.7012444830349864,"{""clf__alpha"": 0.1}"
+S2_TFIDF_MNB,4,0.7014320151676801,"{""clf__alpha"": 0.1}"
+S2_TFIDF_MNB,5,0.7000856320501598,"{""clf__alpha"": 0.1}"

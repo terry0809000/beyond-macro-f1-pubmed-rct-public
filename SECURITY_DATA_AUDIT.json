@@ -1,0 +1,106 @@
+{
+  "audited_utc": "2026-07-29T21:51:30Z",
+  "checks": {
+    "files_over_90_mib_in_staging": 0,
+    "generated_cache_files_in_staging": 0,
+    "high_confidence_credentials_or_private_keys": 0,
+    "license_boundary_approved_and_documented": true,
+    "license_pending_files": 0,
+    "licensed_font_files_in_staging": 0,
+    "model_weight_files_in_staging": 0,
+    "personal_user_paths_in_staging": 0,
+    "raw_benchmark_text_files_in_staging": 0,
+    "raw_text_columns_in_included_artifacts": 0,
+    "retired_manual_review_data_files_in_staging": 0
+  },
+  "contract": "plos_github_staging_security_data_audit_v1",
+  "external_release_blockers": [
+    "GitHub remote must be created from this history-free tree, reviewed, committed, tagged v1.0.0, and pushed.",
+    "The pre-license Zenodo ZIP must be rebuilt with LICENSE, LICENSE-CONTENT-DATA-CC-BY-4.0.txt, and LICENSES.md; Zenodo must then archive GitHub release v1.0.0, generate its DOI, resolve publicly, and pass independent remote archive byte count/SHA-256 verification."
+  ],
+  "github_staging_snapshot_excluding_this_report_and_release_manifest": {
+    "bytes": 3094462,
+    "files": 85,
+    "largest_file": {
+      "bytes": 1020263,
+      "relative_path": "figures/S1_fig.png"
+    }
+  },
+  "omission_policy": {
+    "complete_zenodo_archive": "PLOS_R1_publication_20260729T084516Z_sanitized_data_code_deposit.zip",
+    "complete_zenodo_archive_bytes": 64452428,
+    "complete_zenodo_archive_sha256": "8d648613dde0134c828faab507634481a827e22ce16fbfc9e7dd057a03ee0f63",
+    "complete_zenodo_archive_status": "pre-license sanitized evidence archive; rebuild required before public deposit",
+    "github_large_file_limit_bytes": 94371840,
+    "inventory": "WITHHELD_ARTIFACTS.csv",
+    "zenodo_doi_status": "pending DOI generation from the archived GitHub v1.0.0 release; no DOI claimed"
+  },
+  "repository": "terry0809000/beyond-macro-f1-pubmed-rct-public",
+  "licenses": {
+    "author_generated_code": "MIT",
+    "author_generated_documentation_figures_and_derived_outputs": "CC-BY-4.0",
+    "cc_by_4_legalcode_sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411",
+    "third_party_pubmed_text_relicensed": false,
+    "third_party_models_libraries_fonts_or_weights_relicensed": false
+  },
+  "reviewed_exceptions": [
+    {
+      "classification": "immutable provenance, not private data",
+      "control": "The Git-facing smoke extraction removes machine/cloud path defaults; the notebook is retained byte-for-byte solely to preserve its certified SHA-256.",
+      "detail": "Contains generic Colab/Windows runtime examples and explicit statements that the withdrawn manual review is absent. It contains no usernames, credentials, annotation rows, templates, or labels.",
+      "path": "analysis/certified_source_notebook.ipynb"
+    },
+    {
+      "classification": "defensive pattern definitions",
+      "control": "Pattern definitions contain no credential values or restricted records.",
+      "detail": "Names prohibited secret/path/data patterns so that their presence elsewhere causes verification failure.",
+      "path": "src/plos_nlp_release/verify_release.py"
+    }
+  ],
+  "run_id": "PLOS_R1_publication_20260729T084516Z",
+  "source_deposit": {
+    "bytes": 397092603,
+    "files": 116,
+    "files_over_90_mib": 1,
+    "history_free": true,
+    "largest_file": {
+      "bytes": 125892851,
+      "relative_path": "artifacts/fixed_ablation_oof_predictions_long.csv"
+    },
+    "raw_pubmed_text_included": false
+  },
+  "source_notebook_sha256": "f41a9b1542f4a544eea2ff2085cc096743eb6f98d166a6e2dc0af4e96590ba13",
+  "source_release": "PLOS_R1_REVIEWER_ALIGNED_G4_FINAL_EXPORT_COMPLETE_CLASSICAL_PARAMS_20260729",
+  "status": "passed_with_external_release_blockers",
+  "test_evidence": {
+    "certified_notebook_code": {
+      "command": "python -B <in-memory notebook code-cell compile check>",
+      "result": "49 code cells compiled successfully"
+    },
+    "citation_metadata": {
+      "command": "python -B <PyYAML safe_load CITATION.cff>",
+      "result": "valid YAML; no DOI claimed before GitHub-release archiving"
+    },
+    "git_object_round_trip": {
+      "command": "git add -A; git write-tree; git archive <tree> | extract; PYTHONPATH=src python -B -m plos_nlp_release <extracted-tree>",
+      "result": "passed; Git archive preserved all 86 manifested paths, byte counts, and SHA-256 values, including the certified notebook"
+    },
+    "python_sources": {
+      "command": "python -B <in-memory compile of every staged .py file>",
+      "result": "7 Python files compiled successfully"
+    },
+    "release_verifier": {
+      "command": "PYTHONPATH=src python -B -m plos_nlp_release .",
+      "result": "passed; 86 manifest rows verified; approved MIT/CC-BY-4.0 boundary verified; zero errors"
+    },
+    "tests": {
+      "command": "PYTHONPATH=src python -B -m pytest -q -p no:cacheprovider",
+      "result": "3 passed"
+    },
+    "wheel_build": {
+      "command": "python -B -m pip wheel . --no-deps --no-build-isolation --wheel-dir <temporary-directory>",
+      "result": "plos_nlp_release-1.0.0-py3-none-any.whl built successfully (21,975 bytes); wheel contains all three license/scope files; generated build caches removed from staging"
+    }
+  },
+  "version": "1.0.0"
+}

@@ -1,0 +1,6 @@
+model_name,fold,inner_best_macro_f1,inner_best_params_json
+S1_TFIDF_LinearSVM,1,0.759888387655831,"{""clf__C"": 0.5}"
+S1_TFIDF_LinearSVM,2,0.7566660808705078,"{""clf__C"": 0.5}"
+S1_TFIDF_LinearSVM,3,0.7559694931473393,"{""clf__C"": 0.5}"
+S1_TFIDF_LinearSVM,4,0.7570611843372577,"{""clf__C"": 0.5}"
+S1_TFIDF_LinearSVM,5,0.7590843615391731,"{""clf__C"": 0.5}"

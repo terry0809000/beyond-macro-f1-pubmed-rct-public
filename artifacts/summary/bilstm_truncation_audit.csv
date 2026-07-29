@@ -1,0 +1,6 @@
+split,phase,reference_seed,n_abstracts,n_sentences,max_observed_abstract_sentences,training_derived_max_abstract_sentences,max_sentence_tokens,n_sentence_truncated,sentence_truncation_rate,n_abstract_truncated,model
+train,development_selection,42,15000,180040,31,31,64,4565,0.025355476560764274,0,S8_BiLSTMStyle_SequentialModel
+development,development_selection,42,2500,30212,27,31,64,779,0.025784456507348074,0,S8_BiLSTMStyle_SequentialModel
+train,locked_final,42,15000,180040,31,31,64,4565,0.025355476560764274,0,S8_BiLSTMStyle_SequentialModel
+development,locked_final,42,2500,30212,27,31,64,779,0.025784456507348074,0,S8_BiLSTMStyle_SequentialModel
+test,locked_final,42,2500,30135,28,31,64,768,0.02548531607765057,0,S8_BiLSTMStyle_SequentialModel

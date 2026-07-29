@@ -1,0 +1,72 @@
+field,value
+timestamp_utc,2026-07-29T08:45:28+00:00
+run_id,PLOS_R1_publication_20260729T084516Z
+source_notebook_release_id,PLOS_R1_REVIEWER_ALIGNED_G4_FINAL_EXPORT_COMPLETE_CLASSICAL_PARAMS_20260729
+source_notebook_sha256,f41a9b1542f4a544eea2ff2085cc096743eb6f98d166a6e2dc0af4e96590ba13
+python,"3.12.13 (main, Mar  4 2026, 09:23:07) [GCC 11.4.0]"
+implementation,CPython
+os_platform,Linux-6.6.122+-x86_64-with-glibc2.35
+kernel_release,6.6.122+
+machine,x86_64
+processor,x86_64
+hostname,[REDACTED_LOCAL_VALUE]
+logical_cpu_count,48
+physical_cpu_count,24
+total_ram_gb,176.88479232788086
+nvidia_smi,"NVIDIA RTX PRO 6000 Blackwell Server Edition, 97887, 580.82.07"
+data_dir,[REDACTED_LOCAL_VALUE]
+output_dir,[REDACTED_LOCAL_VALUE]
+publication_run,True
+smoke_run,False
+dependency_bootstrap_log,['installed sklearn-crfsuite==0.5.0 (previous=None)']
+publication_version_constraints,"{'numpy': '>=1.26,<3', 'pandas': '>=2,<3', 'scikit-learn': '>=1.5,<2', 'scipy': '>=1.11,<2', 'matplotlib': '>=3.8,<4', 'torch': '>=2.7,<3', 'transformers': '>=4.46,<6', 'tokenizers': '>=0.20,<0.24', 'datasets': '>=2.19,<5', 'accelerate': '>=1.1,<2', 'huggingface-hub': '>=0.26,<2', 'safetensors': '>=0.4.3,<1', 'psutil': '>=5.9,<8', 'sklearn-crfsuite': '==0.5.0', 'Pillow': '>=10,<13'}"
+publication_file_preflight,[REDACTED_LOCAL_VALUE]
+publication_gpu_preflight,"{'cuda_available': True, 'device_name': 'NVIDIA RTX PRO 6000 Blackwell Server Edition', 'device_vram_gb': 94.97076416015625, 'compute_capability': [12, 0], 'torch_cuda_build': '12.8', 'torch_arch_list': ['sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120'], 'bf16_supported': True, 'requested_colab_gpu_type': 'G4', 'g4_name_match': True}"
+seed,42
+reference_seed,42
+train_frac,1.0
+dev_frac,1.0
+test_frac,1.0
+n_outer_folds,5
+n_inner_folds,4
+classical_search_n_jobs,8
+classical_inner_estimator_n_jobs,1
+requested_colab_gpu_type,G4
+require_g4,True
+transformer_epochs_final,2
+transformer_batch_size,64
+transformer_eval_batch_size,128
+transformer_bf16,True
+transformer_fp16,False
+transformer_tf32,True
+transformer_dataloader_workers,8
+bilstm_epochs_final,5
+bilstm_batch_size,64
+bilstm_dataloader_workers,8
+colab_release_tag,release-colab-external-images_20260727-060049_RC00
+colab_backend_version,next
+torch_version,2.11.0+cu128
+cuda_available,True
+cuda_version,12.8
+cudnn_version,91900
+gpu_name,NVIDIA RTX PRO 6000 Blackwell Server Edition
+gpu_vram_gb,94.97076416015625
+package__numpy,2.0.2
+package__pandas,2.2.2
+package__scikit-learn,1.6.1
+package__scipy,1.16.3
+package__matplotlib,3.10.0
+package__transformers,5.13.1
+package__datasets,4.0.0
+package__accelerate,1.14.0
+package__tokenizers,0.22.2
+package__huggingface-hub,1.23.0
+package__safetensors,0.8.0
+package__sklearn-crfsuite,0.5.0
+package__torch,2.11.0+cu128
+package__psutil,5.9.5
+package__joblib,1.5.3
+package__Pillow,11.3.0
+package__packaging,26.2
+experiment_invariants,"{'research_focus': 'standard performance, calibration, and automatic prediction sensitivity/consistency', 'dataset': 'fixed PubMed RCT sentence-classification benchmark; previously evaluated in the original submission', 'seed': 42, 'reference_seed': 42, 'final_training_policy': 'training split only; development is not merged into final training', 'classical_selection_policy': 'training-only 5x4 stratified grouped nested CV; four-fold full-training refit search', 'neural_selection_policy': 'development Macro-F1 with fixed model-ID tie-break; no classwise or item-level development analysis', 'test_policy': 'revised systems and comparisons are hash-locked before corrected-run test prediction; prior-submission access is disclosed', 'uncertainty_scope': 'cluster intervals condition on fixed OOF or seed-42 predictions; seed SD separately describes training variability', 'perturbation_policy': 'post-lock prediction-change analysis; no semantic-validity or correctness claim'}"
+snapshot_refreshed_after_installs,2026-07-29T08:45:29+00:00

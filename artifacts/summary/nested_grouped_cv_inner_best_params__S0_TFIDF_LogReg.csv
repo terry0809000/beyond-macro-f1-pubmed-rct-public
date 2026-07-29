@@ -1,0 +1,6 @@
+model_name,fold,inner_best_macro_f1,inner_best_params_json
+S0_TFIDF_LogReg,1,0.7565259777103289,"{""clf__C"": 10.0, ""clf__class_weight"": ""balanced""}"
+S0_TFIDF_LogReg,2,0.7549361342594948,"{""clf__C"": 10.0, ""clf__class_weight"": null}"
+S0_TFIDF_LogReg,3,0.7535097099890724,"{""clf__C"": 10.0, ""clf__class_weight"": null}"
+S0_TFIDF_LogReg,4,0.7552382806640068,"{""clf__C"": 10.0, ""clf__class_weight"": ""balanced""}"
+S0_TFIDF_LogReg,5,0.7553164964602139,"{""clf__C"": 10.0, ""clf__class_weight"": null}"

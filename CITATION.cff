@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use this software or derived evidence, please cite this release and the associated article."
+type: software
+title: "Beyond Macro-F1: PubMed RCT sentence-classification reproducibility package"
+version: 1.0.0
+date-released: 2026-07-29
+license: MIT
+authors:
+  - family-names: "Yu"
+    given-names: "Tianyi"
+    affiliation: "King's College London"
+repository-code: "https://github.com/terry0809000/beyond-macro-f1-pubmed-rct-public"
+keywords:
+  - biomedical natural language processing
+  - sentence classification
+  - PubMed RCT
+  - calibration
+  - perturbation consistency
+  - reproducibility
+abstract: >-
+  History-free source code, compact sanitized derived evidence, figures, and
+  provenance for the verified PLOS ONE revision run
+  PLOS_R1_publication_20260729T084516Z. The Zenodo DOI for version 1.0.0 will
+  be inserted only after Zenodo archives the GitHub release and the generated
+  identifier is independently observed and verified. Author-generated
+  software is MIT licensed; author-generated documentation, figures, and
+  derived outputs are licensed CC BY 4.0.

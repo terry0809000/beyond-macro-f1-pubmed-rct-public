@@ -1,0 +1,25 @@
+name: release-integrity
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install verifier and tests
+        run: python -m pip install -e ".[dev]"
+      - name: Compile Python sources
+        run: python -m compileall -q src scripts analysis/run_smoke_analysis.py tests
+      - name: Verify frozen release
+        run: python -m plos_nlp_release .
+      - name: Run tests
+        run: python -m pytest -q

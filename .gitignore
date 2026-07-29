@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Editors and operating systems
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Raw/reconstructed benchmark text and generated outputs
+data/
+outputs/
+train.txt
+dev.txt
+test.txt
+*.ckpt
+*.joblib
+*.onnx
+*.pkl
+*.pickle
+*.pt
+*.pth
+*.safetensors
+*.ttf
+
+# Local credentials/configuration
+.env
+.env.*
+!.env.example
+*token*
+*secret*
+
+# Archival payloads belong in Zenodo releases, not Git
+*.zip
+*.tar
+*.tar.gz
+*.7z

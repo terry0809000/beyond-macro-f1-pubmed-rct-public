@@ -1,0 +1,75 @@
+{
+  "classical_tie_break_order": [
+    "S0_TFIDF_LogReg",
+    "S1_TFIDF_LinearSVM",
+    "S2_TFIDF_MNB",
+    "S5_NumberNormalized_LogReg",
+    "S6_PositionAware_LogReg"
+  ],
+  "comparison_csv_sha256": "173b250ecde87920a57f1c2e8303fdc2463480052baf0d149d5399b069059394",
+  "comparisons": [
+    {
+      "analysis_role": "primary",
+      "comparison_family": "primary_transformer_vs_bilstm",
+      "formal_inference_allowed": true,
+      "model_a": "S9_biomedbert_prev_plus_current",
+      "model_b": "S8_BiLSTMStyle_SequentialModel"
+    },
+    {
+      "analysis_role": "secondary_descriptive",
+      "comparison_family": "context_input_mode",
+      "formal_inference_allowed": false,
+      "model_a": "S9_biomedbert_prev_plus_current",
+      "model_b": "S9_biomedbert_sentence_only"
+    },
+    {
+      "analysis_role": "secondary_descriptive",
+      "comparison_family": "second_ranked_transformer",
+      "formal_inference_allowed": false,
+      "model_a": "S9_biomedbert_prev_plus_current",
+      "model_b": "S9_scibert_prev_plus_current"
+    },
+    {
+      "analysis_role": "secondary_descriptive",
+      "comparison_family": "position_aware_classical",
+      "formal_inference_allowed": false,
+      "model_a": "S9_biomedbert_prev_plus_current",
+      "model_b": "S6_PositionAware_LogReg"
+    }
+  ],
+  "created_utc": "2026-07-29T12:04:53+00:00",
+  "data_sha256": {
+    "dev": "21019fb5fde4ed4fd67a358ae2a74aadf3b85540aa42ef2fb41d7a86d7aeda82",
+    "test": "b5dea844fecf520933f67f5dcd216c6cf1250f92946170cd93e55302fbb07d50",
+    "train": "2b1be3797844d060873d97e445aa4bf05fafbd050d526528364e233c17a7ced0"
+  },
+  "deep_seeds": [
+    42,
+    43,
+    44
+  ],
+  "final_systems": [
+    "S6_PositionAware_LogReg",
+    "S5_NumberNormalized_LogReg",
+    "S1_TFIDF_LinearSVM",
+    "S0_TFIDF_LogReg",
+    "S8_BiLSTMStyle_SequentialModel",
+    "S9_biomedbert_prev_plus_current",
+    "S9_scibert_prev_plus_current",
+    "S9_biomedbert_sentence_only"
+  ],
+  "lock_version": "plos_r1_selection_comparison_lock_v2",
+  "reference_seed": 42,
+  "selection_csv_sha256": "bd6ce629ebc6529263dd11b30e7916fe6734faae2d6e1242c68b1875d8a69c63",
+  "source_notebook_release_id": "PLOS_R1_REVIEWER_ALIGNED_G4_FINAL_EXPORT_COMPLETE_CLASSICAL_PARAMS_20260729",
+  "source_notebook_sha256": "f41a9b1542f4a544eea2ff2085cc096743eb6f98d166a6e2dc0af4e96590ba13",
+  "test_access_disclosure": "fixed public benchmark test split was evaluated in the original submission; no corrected-run predictions or performance summaries informed this lock",
+  "transformer_tie_break_order": [
+    "S9_bert_base_sentence_only",
+    "S9_bert_base_prev_plus_current",
+    "S9_scibert_sentence_only",
+    "S9_scibert_prev_plus_current",
+    "S9_biomedbert_sentence_only",
+    "S9_biomedbert_prev_plus_current"
+  ]
+}

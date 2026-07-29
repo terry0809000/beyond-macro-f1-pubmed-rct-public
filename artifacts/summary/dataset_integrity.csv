@@ -1,0 +1,4 @@
+split,n_sentences,n_abstracts,duplicate_pubmed_file_order,duplicate_pubmed_text_label,unexpected_labels,raw_input_abstract_order_failures
+train,180040,15000,0,9,,0
+development,30212,2500,0,1,,0
+test,30135,2500,0,5,,0

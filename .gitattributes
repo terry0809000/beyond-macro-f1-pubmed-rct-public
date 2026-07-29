@@ -1,0 +1,4 @@
+# This release is byte-for-byte hash-bound by release_manifest.csv.
+# Disable Git line-ending normalization for every path so fresh clones and
+# source archives preserve the certified notebook and all manifested hashes.
+* -text

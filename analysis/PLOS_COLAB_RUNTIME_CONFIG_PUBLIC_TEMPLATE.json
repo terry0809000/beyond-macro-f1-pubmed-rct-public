@@ -1,0 +1,10 @@
+{
+  "HUGGINGFACE_TOKEN_REQUIRED": false,
+  "PLOS_REQUIRE_G4": true,
+  "PLOS_SOURCE_NOTEBOOK_SHA256": "f41a9b1542f4a544eea2ff2085cc096743eb6f98d166a6e2dc0af4e96590ba13",
+  "note": "Public non-secret launch template. Supply a legitimately licensed Arial file privately through PLOS_FONT_PATH before execution; no font file or private path is included in this deposit.",
+  "notebook_filename": "AG16013_7PAVNLPS_REVIEWER_ALIGNED_G4_FINAL_EXPORT_COMPLETE_CLASSICAL_PARAMS_SOURCE_ONLY.ipynb",
+  "release_id": "PLOS_R1_REVIEWER_ALIGNED_G4_FINAL_EXPORT_COMPLETE_CLASSICAL_PARAMS_20260729",
+  "schema_version": "plos_colab_runtime_config_v2",
+  "time_limit_policy": "no_wall_clock_abort"
+}
