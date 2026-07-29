@@ -19,6 +19,15 @@ def test_release_contract() -> None:
     assert report["largest_file"]["bytes"] < 90 * 1024 * 1024
     assert report["licenses"]["code_license"] == "MIT"
     assert report["licenses"]["content_data_license"] == "CC-BY-4.0"
+    assert report["release_archive"]["bytes"] == 64_461_196
+    assert (
+        report["release_archive"]["sha256"]
+        == "b6f4a158891784ea5f6f451d33d4e3a46ff42406afa582553a01f2fa381fddf4"
+    )
+    assert (
+        report["zenodo_integration"]["manual_github_release_asset_inclusion"]
+        == "not assumed; inspect the generated Zenodo record"
+    )
 
 
 def test_primary_results_cover_all_locked_system_rows() -> None:

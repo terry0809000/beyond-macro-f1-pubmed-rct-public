@@ -1,7 +1,10 @@
 {
-  "audited_utc": "2026-07-29T22:15:30Z",
+  "audited_utc": "2026-07-29T22:18:18Z",
   "checks": {
     "files_over_90_mib_in_staging": 0,
+    "canonical_release_archive_deterministic_rebuild_match": true,
+    "canonical_release_archive_license_files_verified": true,
+    "canonical_release_archive_security_scan_passed": true,
     "generated_build_install_metadata_in_staging": 0,
     "generated_cache_files_in_staging": 0,
     "high_confidence_credentials_or_private_keys": 0,
@@ -16,31 +19,41 @@
   },
   "contract": "plos_github_staging_security_data_audit_v1",
   "external_release_blockers": [
-    "GitHub remote must be created from this history-free tree, reviewed, committed, tagged v1.0.0, and pushed.",
-    "The pre-license Zenodo ZIP must be rebuilt with LICENSE, LICENSE-CONTENT-DATA-CC-BY-4.0.txt, and LICENSES.md; Zenodo must then archive GitHub release v1.0.0, generate its DOI, resolve publicly, and pass independent remote archive byte count/SHA-256 verification."
+    "The refreshed release-archive identity must be committed and pushed before tag/release v1.0.0 is created.",
+    "The exact verified ZIP, public_deposit_manifest.csv, and SHA256SUMS must be attached as GitHub release assets and independently downloaded to confirm their byte counts and SHA-256 values.",
+    "Zenodo must archive the tagged GitHub repository, generate a DOI that resolves publicly, and have its record contents inspected; inclusion of manually attached GitHub release assets must not be assumed."
   ],
   "github_staging_snapshot_excluding_this_report_and_release_manifest": {
-    "bytes": 3096474,
+    "bytes": 3100589,
     "files": 85,
     "largest_file": {
       "bytes": 1020263,
       "relative_path": "figures/S1_fig.png"
     }
   },
-  "omission_policy": {
-    "complete_zenodo_archive": "PLOS_R1_publication_20260729T084516Z_sanitized_data_code_deposit.zip",
-    "complete_zenodo_archive_bytes": 64452428,
-    "complete_zenodo_archive_sha256": "8d648613dde0134c828faab507634481a827e22ce16fbfc9e7dd057a03ee0f63",
-    "complete_zenodo_archive_status": "pre-license sanitized evidence archive; rebuild required before public deposit",
+  "large_artifact_release_policy": {
+    "canonical_github_release_archive": "PLOS_R1_publication_20260729T084516Z_sanitized_data_code_deposit.zip",
+    "canonical_github_release_archive_bytes": 64461196,
+    "canonical_github_release_archive_members": 119,
+    "canonical_github_release_archive_sha256": "b6f4a158891784ea5f6f451d33d4e3a46ff42406afa582553a01f2fa381fddf4",
+    "canonical_github_release_archive_status": "verified license-inclusive sanitized evidence archive; canonical GitHub release asset",
     "github_large_file_limit_bytes": 94371840,
     "inventory": "WITHHELD_ARTIFACTS.csv",
-    "zenodo_doi_status": "pending DOI generation from the archived GitHub v1.0.0 release; no DOI claimed"
+    "outer_checksums_bytes": 229,
+    "outer_checksums_sha256": "6f160158acba129753954b5aa2caff217c24f627a977d40611181039db8be56a",
+    "public_deposit_manifest_bytes": 76452,
+    "public_deposit_manifest_sha256": "27fdd8bec132208474377209f128f138f0e71fd28d111d554304dfbf79af7e37",
+    "zenodo_doi_status": "pending DOI generation from the archived tagged GitHub repository; no DOI claimed",
+    "zenodo_integration_status": "configured to archive the tagged GitHub repository",
+    "zenodo_manual_github_release_asset_inclusion": "not assumed; inspect the generated Zenodo record"
   },
   "repository": "terry0809000/beyond-macro-f1-pubmed-rct-public",
   "licenses": {
     "author_generated_code": "MIT",
     "author_generated_documentation_figures_and_derived_outputs": "CC-BY-4.0",
     "cc_by_4_legalcode_sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411",
+    "license_scope_notice_sha256": "67de1e3b928fa7b11b0373c1dc328976d94833a16f708c1eb57ac47b6df60585",
+    "mit_license_sha256": "139a9b686a58e4afdeff17f3514b30b35106d2820a9baef9e70962cdae7501fe",
     "third_party_pubmed_text_relicensed": false,
     "third_party_models_libraries_fonts_or_weights_relicensed": false
   },
@@ -59,9 +72,9 @@
     }
   ],
   "run_id": "PLOS_R1_publication_20260729T084516Z",
-  "source_deposit": {
-    "bytes": 397092603,
-    "files": 116,
+  "canonical_release_deposit_tree": {
+    "bytes": 397116451,
+    "files": 119,
     "files_over_90_mib": 1,
     "history_free": true,
     "largest_file": {
@@ -74,6 +87,10 @@
   "source_release": "PLOS_R1_REVIEWER_ALIGNED_G4_FINAL_EXPORT_COMPLETE_CLASSICAL_PARAMS_20260729",
   "status": "passed_with_external_release_blockers",
   "test_evidence": {
+    "canonical_release_assets": {
+      "command": "independent local byte-count/SHA-256 read-back of canonical ZIP, public_deposit_manifest.csv, and SHA256SUMS",
+      "result": "passed; ZIP 64,461,196 bytes / b6f4a158891784ea5f6f451d33d4e3a46ff42406afa582553a01f2fa381fddf4; manifest 76,452 bytes / 27fdd8bec132208474377209f128f138f0e71fd28d111d554304dfbf79af7e37; SHA256SUMS 229 bytes / 6f160158acba129753954b5aa2caff217c24f627a977d40611181039db8be56a"
+    },
     "certified_notebook_code": {
       "command": "python -B <in-memory notebook code-cell compile check>",
       "result": "49 code cells compiled successfully"
@@ -104,7 +121,7 @@
     },
     "wheel_build": {
       "command": "python -B -m pip wheel . --no-deps --no-build-isolation --wheel-dir <temporary-directory>",
-      "result": "plos_nlp_release-1.0.0-py3-none-any.whl built successfully (22,127 bytes); wheel contains all three license/scope files; generated build caches removed from staging"
+      "result": "plos_nlp_release-1.0.0-py3-none-any.whl built successfully (22,961 bytes); wheel contains all three license/scope files; generated build caches removed from staging"
     }
   },
   "version": "1.0.0"

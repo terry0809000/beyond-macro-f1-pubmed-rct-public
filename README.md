@@ -6,10 +6,10 @@ Reproducibility code and sanitized derived evidence for:
 > Calibration and Perturbation Consistency? A Benchmark Study of PubMed RCT
 > Sentence Classification**
 
-This history-free repository candidate accompanies the verified PLOS ONE
-revision run. It is deliberately smaller than the archival deposit: GitHub
-contains code, provenance, figures, and compact result tables, while the full
-sanitized evidence archive is intended for Zenodo.
+This history-free repository accompanies the verified PLOS ONE revision run.
+The Git tree contains code, provenance, figures, and compact result tables.
+The full sanitized evidence ZIP is distributed separately as a GitHub release
+asset because it is intentionally not committed to the repository.
 
 ## Release identity
 
@@ -21,20 +21,30 @@ sanitized evidence archive is intended for Zenodo.
 - Certified source notebook SHA-256:
   `f41a9b1542f4a544eea2ff2085cc096743eb6f98d166a6e2dc0af4e96590ba13`
 - Completion contract: `plos_publication_completion_v3`
-- Pre-license sanitized evidence archive:
+- Canonical license-inclusive sanitized evidence release asset:
   `PLOS_R1_publication_20260729T084516Z_sanitized_data_code_deposit.zip`
-- Archive bytes: `64,452,428`
+- Archive bytes: `64,461,196`
 - Archive SHA-256:
-  `8d648613dde0134c828faab507634481a827e22ce16fbfc9e7dd057a03ee0f63`
+  `b6f4a158891784ea5f6f451d33d4e3a46ff42406afa582553a01f2fa381fddf4`
+- Public deposit manifest: `public_deposit_manifest.csv`
+- Public deposit manifest bytes: `76,452`
+- Public deposit manifest SHA-256:
+  `27fdd8bec132208474377209f128f138f0e71fd28d111d554304dfbf79af7e37`
+- Outer checksums file: `SHA256SUMS`
+- Outer checksums bytes: `229`
+- Outer checksums SHA-256:
+  `6f160158acba129753954b5aa2caff217c24f627a977d40611181039db8be56a`
 - Zenodo DOI: pending creation from Zenodo's archive of the GitHub `v1.0.0`
-  release. Insert only the identifier actually generated for that release
-  after it resolves and the archive is independently read back.
+  release. Insert only the identifier actually generated for that archived
+  tagged repository after it resolves.
 
-The bound archive above preserves the sanitized analytical payload produced
-before the author approved the licenses. It does not contain the three license
-files now in this Git staging tree. A public Zenodo payload should be rebuilt
-to include `LICENSE`, `LICENSE-CONTENT-DATA-CC-BY-4.0.txt`, and `LICENSES.md`;
-its new byte count and SHA-256 must then replace the pre-license values above.
+The canonical ZIP contains 119 members, including `LICENSE`,
+`LICENSE-CONTENT-DATA-CC-BY-4.0.txt`, and `LICENSES.md`. Its deterministic
+rebuild, internal manifest/checksums, and security boundary were independently
+verified. The ZIP is a manually attached GitHub release asset. Zenodo's GitHub
+integration archives the tagged repository; do not assume that it also copies
+manually attached GitHub release assets. Inspect the eventual Zenodo record
+before describing the full ZIP as present there.
 
 The publication run completed with 16 final system/seed rows, 10,000
 complete-abstract bootstrap replicates per reported contrast, a locked
@@ -141,7 +151,7 @@ The exact run was executed on an NVIDIA RTX PRO 6000 Blackwell Server Edition
 G4 runtime. A full rerun is computationally intensive; the smoke runner is the
 appropriate installation check.
 
-## GitHub versus Zenodo contents
+## Git repository, release assets, and Zenodo
 
 GitHub intentionally omits large row-level prediction, out-of-fold,
 probability, and bootstrap-distribution files. The largest excluded file is
@@ -149,21 +159,21 @@ probability, and bootstrap-distribution files. The largest excluded file is
 the conservative 90 MiB Git staging limit. `WITHHELD_ARTIFACTS.csv` records
 every excluded source-deposit file and the reason.
 
-The complete sanitized evidence archive is the basis of the Zenodo payload.
-Before publication:
+The complete sanitized evidence ZIP and its companion
+`public_deposit_manifest.csv` and `SHA256SUMS` files are canonical GitHub
+release assets. Before publication:
 
-1. rebuild the archive with the complete approved license files and verify its
-   new filename, byte count, and SHA-256;
-2. apply the approved MIT code license and CC BY 4.0 content/data license in
-   the Zenodo metadata and description;
-3. confirm that Zenodo's GitHub integration is enabled for this public
-   repository;
-4. publish GitHub release `v1.0.0` and allow Zenodo to archive that release;
-5. independently download/read back the archived payload and verify its byte
-   count and SHA-256;
-6. verify the generated version and concept DOI(s) in a signed-out browser;
-7. update the manuscript Data Availability Statement, `CITATION.cff`, and this
-   README with the verified identifier.
+1. attach the exact verified ZIP, public manifest, and outer checksum file to
+   GitHub release `v1.0.0`;
+2. independently download the GitHub release assets and verify each byte count
+   and SHA-256 shown above;
+3. confirm that Zenodo's GitHub integration is enabled, then publish the
+   reviewed tag/release so Zenodo archives the tagged repository;
+4. inspect the generated Zenodo record and its files rather than assuming it
+   contains the manually attached GitHub release asset;
+5. verify the generated version and concept DOI(s) in a signed-out browser;
+6. update the manuscript Data Availability Statement, `CITATION.cff`, and this
+   README with only the verified identifier and observed archive contents.
 
 See `ZENODO_DEPOSIT_CHECKLIST.md`.
 
@@ -172,7 +182,8 @@ See `ZENODO_DEPOSIT_CHECKLIST.md`.
 Included CSVs contain aggregate metrics, class-level summaries, figure source
 data, system specifications, and public run metadata. They contain no abstract
 sentence text. Item-level no-text derivatives and bulky resampling
-distributions remain in the complete sanitized archive rather than Git.
+distributions remain in the complete sanitized GitHub release archive rather
+than the Git tree.
 
 No credentials, model weights, licensed font files, raw PubMed RCT split
 files, or rejected manual/clinician-review datasets are distributed. Mentions
@@ -199,14 +210,15 @@ its own terms.
 
 Versioned software citation metadata are in `CITATION.cff`. No DOI is claimed
 before Zenodo archives GitHub release `v1.0.0`; the generated DOI will be
-inserted only after it resolves publicly and the archive is read back
-successfully.
+inserted only after it resolves publicly and the Zenodo record contents are
+inspected.
 
 ## Reproducibility scope
 
-The compact GitHub tables are sufficient to audit reported summaries and
-figures, but they are not a substitute for the complete sanitized Zenodo
-archive or the third-party input data. Model-download availability, GPU
-hardware, and future package compatibility can change; immutable upstream
-commits, checkpoint revisions, package constraints, and the certified
-notebook are therefore recorded explicitly.
+The compact Git tables are sufficient to audit reported summaries and figures,
+but they are not a substitute for the complete sanitized GitHub release
+archive or the third-party input data. Whether the eventual Zenodo record also
+contains that manually attached ZIP must be verified from the record itself.
+Model-download availability, GPU hardware, and future package compatibility
+can change; immutable upstream commits, checkpoint revisions, package
+constraints, and the certified notebook are therefore recorded explicitly.

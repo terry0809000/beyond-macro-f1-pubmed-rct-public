@@ -26,12 +26,20 @@ SOURCE_NOTEBOOK_SHA256 = (
     "f41a9b1542f4a544eea2ff2085cc096743eb6f98d166a6e2dc0af4e96590ba13"
 )
 COMPLETION_CONTRACT = "plos_publication_completion_v3"
-ZENODO_ARCHIVE_NAME = (
+RELEASE_ARCHIVE_NAME = (
     "PLOS_R1_publication_20260729T084516Z_sanitized_data_code_deposit.zip"
 )
-ZENODO_ARCHIVE_BYTES = 64_452_428
-ZENODO_ARCHIVE_SHA256 = (
-    "8d648613dde0134c828faab507634481a827e22ce16fbfc9e7dd057a03ee0f63"
+RELEASE_ARCHIVE_BYTES = 64_461_196
+RELEASE_ARCHIVE_SHA256 = (
+    "b6f4a158891784ea5f6f451d33d4e3a46ff42406afa582553a01f2fa381fddf4"
+)
+PUBLIC_DEPOSIT_MANIFEST_BYTES = 76_452
+PUBLIC_DEPOSIT_MANIFEST_SHA256 = (
+    "27fdd8bec132208474377209f128f138f0e71fd28d111d554304dfbf79af7e37"
+)
+OUTER_CHECKSUMS_BYTES = 229
+OUTER_CHECKSUMS_SHA256 = (
+    "6f160158acba129753954b5aa2caff217c24f627a977d40611181039db8be56a"
 )
 CC_BY_4_LEGALCODE_SHA256 = (
     "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411"
@@ -364,6 +372,39 @@ def _check_license_contracts(root: Path, errors: list[str]) -> dict[str, Any]:
         or "LICENSE-CONTENT-DATA-CC-BY-4.0.txt" not in readme_text
     ):
         errors.append("README.md: dual-license notice is incomplete")
+    checklist_text = (root / "ZENODO_DEPOSIT_CHECKLIST.md").read_text(
+        encoding="utf-8"
+    )
+    release_identity_phrases = (
+        "64,461,196",
+        RELEASE_ARCHIVE_SHA256,
+        "76,452",
+        PUBLIC_DEPOSIT_MANIFEST_SHA256,
+        OUTER_CHECKSUMS_SHA256,
+        "GitHub release asset",
+    )
+    for relative, text in (
+        ("README.md", readme_text),
+        ("ZENODO_DEPOSIT_CHECKLIST.md", checklist_text),
+    ):
+        for phrase in release_identity_phrases:
+            if phrase not in text:
+                errors.append(
+                    f"{relative}: canonical release identity phrase is missing: "
+                    f"{phrase!r}"
+                )
+        if "do not assume" not in text.casefold():
+            errors.append(
+                f"{relative}: Zenodo manual-release-asset caveat is missing"
+            )
+    for relative in (
+        "README.md",
+        "ZENODO_DEPOSIT_CHECKLIST.md",
+        "SECURITY_DATA_AUDIT.json",
+    ):
+        text = (root / relative).read_text(encoding="utf-8").casefold()
+        if any(f"{prefix}-license" in text for prefix in ("pre", "pending")):
+            errors.append(f"{relative}: obsolete license-status language remains")
     pyproject_text = (root / "pyproject.toml").read_text(encoding="utf-8")
     if 'license = {file = "LICENSE"}' not in pyproject_text:
         errors.append("pyproject.toml: MIT license file is not declared")
@@ -457,14 +498,28 @@ def verify_repository(root: Path) -> dict[str, Any]:
         "largest_file": largest,
         "completion_status": sentinel.get("status"),
         "licenses": licenses,
-        "zenodo_archive": {
-            "filename": ZENODO_ARCHIVE_NAME,
-            "bytes": ZENODO_ARCHIVE_BYTES,
-            "sha256": ZENODO_ARCHIVE_SHA256,
-            "archive_status": "pre-license sanitized evidence archive; rebuild with license files before public deposit",
-            "license_inclusive_public_payload_pending": True,
-            "doi_status": "pending GitHub v1.0.0 release archiving; no DOI claimed",
-            "note": "Insert only the DOI generated from the archived GitHub release after it resolves and the archive passes read-back.",
+        "release_archive": {
+            "filename": RELEASE_ARCHIVE_NAME,
+            "bytes": RELEASE_ARCHIVE_BYTES,
+            "sha256": RELEASE_ARCHIVE_SHA256,
+            "members": 119,
+            "archive_status": "verified license-inclusive sanitized evidence archive; canonical GitHub release asset",
+            "public_deposit_manifest": {
+                "filename": "public_deposit_manifest.csv",
+                "bytes": PUBLIC_DEPOSIT_MANIFEST_BYTES,
+                "sha256": PUBLIC_DEPOSIT_MANIFEST_SHA256,
+            },
+            "outer_checksums": {
+                "filename": "SHA256SUMS",
+                "bytes": OUTER_CHECKSUMS_BYTES,
+                "sha256": OUTER_CHECKSUMS_SHA256,
+            },
+        },
+        "zenodo_integration": {
+            "status": "configured to archive the tagged GitHub repository",
+            "doi_status": "pending v1.0.0 archival; no DOI claimed",
+            "manual_github_release_asset_inclusion": "not assumed; inspect the generated Zenodo record",
+            "note": "Insert only the DOI generated from the archived tagged repository after it resolves; verify Zenodo files independently.",
         },
         "checks": {
             "manifest_paths_bytes_sha256": not any(
