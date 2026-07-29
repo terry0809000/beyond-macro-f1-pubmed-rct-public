@@ -41,6 +41,19 @@ OUTER_CHECKSUMS_BYTES = 229
 OUTER_CHECKSUMS_SHA256 = (
     "6f160158acba129753954b5aa2caff217c24f627a977d40611181039db8be56a"
 )
+ZENODO_VERSION_DOI = "10.5281/zenodo.21693669"
+ZENODO_CONCEPT_DOI = "10.5281/zenodo.21693668"
+ZENODO_RECORD_URL = "https://zenodo.org/records/21693669"
+ZENODO_RECORD_FILE = (
+    "terry0809000/beyond-macro-f1-pubmed-rct-public-v1.0.0.zip"
+)
+ZENODO_RECORD_FILE_BYTES = 2_014_751
+ZENODO_RECORD_FILE_MD5 = "01e5fbfcdfc438cc481f03b188365508"
+ZENODO_RECORD_FILE_SHA256 = (
+    "9d84b61d2f6a133bfb4ca84bb28f5e51a231cb1243db9fef30d98cb92179b780"
+)
+RELEASE_TAG_COMMIT = "0926e98f5fd8637018302c7c426f3af5505b6b73"
+RELEASE_TAG_TREE = "dd3d7744449f90386cc91fa65a3ac96810528ade"
 CC_BY_4_LEGALCODE_SHA256 = (
     "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411"
 )
@@ -361,11 +374,16 @@ def _check_license_contracts(root: Path, errors: list[str]) -> dict[str, Any]:
     citation_text = (root / "CITATION.cff").read_text(encoding="utf-8")
     if "license: MIT" not in citation_text:
         errors.append("CITATION.cff: MIT software license is not declared")
-    if ZENODO_DOI_PATTERN.search(citation_text):
+    observed_dois = set(ZENODO_DOI_PATTERN.findall(citation_text))
+    expected_dois = {ZENODO_VERSION_DOI, ZENODO_CONCEPT_DOI}
+    if observed_dois != expected_dois:
         errors.append(
-            "CITATION.cff: Zenodo DOI must not be claimed before GitHub-release "
-            "archiving and independent verification"
+            "CITATION.cff: expected exactly the verified Zenodo version and "
+            f"concept DOIs {sorted(expected_dois)!r}; found "
+            f"{sorted(observed_dois)!r}"
         )
+    if ZENODO_RECORD_URL not in citation_text:
+        errors.append("CITATION.cff: verified Zenodo record URL is missing")
     readme_text = (root / "README.md").read_text(encoding="utf-8")
     if (
         "[MIT License](LICENSE)" not in readme_text
@@ -382,6 +400,11 @@ def _check_license_contracts(root: Path, errors: list[str]) -> dict[str, Any]:
         PUBLIC_DEPOSIT_MANIFEST_SHA256,
         OUTER_CHECKSUMS_SHA256,
         "GitHub release asset",
+        ZENODO_VERSION_DOI,
+        ZENODO_CONCEPT_DOI,
+        ZENODO_RECORD_FILE,
+        "2,014,751",
+        ZENODO_RECORD_FILE_SHA256,
     )
     for relative, text in (
         ("README.md", readme_text),
@@ -393,9 +416,10 @@ def _check_license_contracts(root: Path, errors: list[str]) -> dict[str, Any]:
                     f"{relative}: canonical release identity phrase is missing: "
                     f"{phrase!r}"
                 )
-        if "do not assume" not in text.casefold():
+        if "does not contain" not in text.casefold():
             errors.append(
-                f"{relative}: Zenodo manual-release-asset caveat is missing"
+                f"{relative}: observed absence of the manual GitHub release "
+                "asset from Zenodo is not documented"
             )
     for relative in (
         "README.md",
@@ -515,11 +539,37 @@ def verify_repository(root: Path) -> dict[str, Any]:
                 "sha256": OUTER_CHECKSUMS_SHA256,
             },
         },
-        "zenodo_integration": {
-            "status": "configured to archive the tagged GitHub repository",
-            "doi_status": "pending v1.0.0 archival; no DOI claimed",
-            "manual_github_release_asset_inclusion": "not assumed; inspect the generated Zenodo record",
-            "note": "Insert only the DOI generated from the archived tagged repository after it resolves; verify Zenodo files independently.",
+        "release_tag": {
+            "name": "v1.0.0",
+            "commit": RELEASE_TAG_COMMIT,
+            "tree": RELEASE_TAG_TREE,
+            "immutable": True,
+            "metadata_updates": "post-release main-branch commits only",
+        },
+        "zenodo_record": {
+            "status": "verified_public",
+            "record_url": ZENODO_RECORD_URL,
+            "version_doi": ZENODO_VERSION_DOI,
+            "concept_doi": ZENODO_CONCEPT_DOI,
+            "unauthenticated_doi_resolution_http_status": 200,
+            "access": "open",
+            "resource_type": "Software",
+            "version": "v1.0.0",
+            "primary_license": "MIT",
+            "file_count": 1,
+            "file": {
+                "filename": ZENODO_RECORD_FILE,
+                "bytes": ZENODO_RECORD_FILE_BYTES,
+                "md5": ZENODO_RECORD_FILE_MD5,
+                "downloaded_sha256": ZENODO_RECORD_FILE_SHA256,
+            },
+            "extracted_verification": {
+                "manifest_rows": 86,
+                "verifier_status": "passed",
+                "tests_passed": 4,
+            },
+            "manual_github_evidence_asset_present": False,
+            "note": "The record contains only Zenodo's generated tagged-repository ZIP; the separate full evidence ZIP remains a verified GitHub release asset.",
         },
         "checks": {
             "manifest_paths_bytes_sha256": not any(
@@ -544,6 +594,16 @@ def verify_repository(root: Path) -> dict[str, Any]:
             "approved_dual_license_boundary": not any(
                 item.startswith(("LICENSE", "CITATION.cff", "README.md", "pyproject.toml"))
                 or "license" in item.casefold()
+                for item in errors
+            ),
+            "verified_zenodo_record_metadata": not any(
+                item.startswith(
+                    (
+                        "CITATION.cff",
+                        "README.md",
+                        "ZENODO_DEPOSIT_CHECKLIST.md",
+                    )
+                )
                 for item in errors
             ),
         },

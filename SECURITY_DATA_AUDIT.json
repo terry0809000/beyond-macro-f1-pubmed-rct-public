@@ -1,5 +1,5 @@
 {
-  "audited_utc": "2026-07-29T22:18:18Z",
+  "audited_utc": "2026-07-29T22:31:15Z",
   "checks": {
     "files_over_90_mib_in_staging": 0,
     "canonical_release_archive_deterministic_rebuild_match": true,
@@ -15,16 +15,18 @@
     "personal_user_paths_in_staging": 0,
     "raw_benchmark_text_files_in_staging": 0,
     "raw_text_columns_in_included_artifacts": 0,
-    "retired_manual_review_data_files_in_staging": 0
+    "retired_manual_review_data_files_in_staging": 0,
+    "zenodo_generated_repository_archive_verifier_passed": true,
+    "zenodo_public_record_contents_verified": true,
+    "zenodo_version_and_concept_doi_resolved": true
   },
   "contract": "plos_github_staging_security_data_audit_v1",
-  "external_release_blockers": [
-    "The refreshed release-archive identity must be committed and pushed before tag/release v1.0.0 is created.",
-    "The exact verified ZIP, public_deposit_manifest.csv, and SHA256SUMS must be attached as GitHub release assets and independently downloaded to confirm their byte counts and SHA-256 values.",
-    "Zenodo must archive the tagged GitHub repository, generate a DOI that resolves publicly, and have its record contents inspected; inclusion of manually attached GitHub release assets must not be assumed."
+  "post_release_actions": [
+    "Commit and push this metadata-only DOI/record update to main without moving or recreating tag v1.0.0.",
+    "Use the verified version DOI, concept DOI, and distinct GitHub-versus-Zenodo file locations in the manuscript Data Availability Statement and reviewer response."
   ],
   "github_staging_snapshot_excluding_this_report_and_release_manifest": {
-    "bytes": 3100589,
+    "bytes": 3104084,
     "files": 85,
     "largest_file": {
       "bytes": 1020263,
@@ -43,9 +45,27 @@
     "outer_checksums_sha256": "6f160158acba129753954b5aa2caff217c24f627a977d40611181039db8be56a",
     "public_deposit_manifest_bytes": 76452,
     "public_deposit_manifest_sha256": "27fdd8bec132208474377209f128f138f0e71fd28d111d554304dfbf79af7e37",
-    "zenodo_doi_status": "pending DOI generation from the archived tagged GitHub repository; no DOI claimed",
-    "zenodo_integration_status": "configured to archive the tagged GitHub repository",
-    "zenodo_manual_github_release_asset_inclusion": "not assumed; inspect the generated Zenodo record"
+    "zenodo_concept_doi": "10.5281/zenodo.21693668",
+    "zenodo_doi_status": "verified; unauthenticated DOI resolution returned HTTP 200",
+    "zenodo_integration_status": "archived tagged repository v1.0.0",
+    "zenodo_manual_github_release_asset_inclusion": "absent from the verified record",
+    "zenodo_record": "https://zenodo.org/records/21693669",
+    "zenodo_record_file": "terry0809000/beyond-macro-f1-pubmed-rct-public-v1.0.0.zip",
+    "zenodo_record_file_bytes": 2014751,
+    "zenodo_record_file_downloaded_sha256": "9d84b61d2f6a133bfb4ca84bb28f5e51a231cb1243db9fef30d98cb92179b780",
+    "zenodo_record_file_md5": "01e5fbfcdfc438cc481f03b188365508",
+    "zenodo_record_file_status": "sole record file; generated tagged-repository archive; extracted verifier 86/86 and 4 tests passed",
+    "zenodo_record_primary_license": "MIT",
+    "zenodo_record_resource_type": "Software",
+    "zenodo_record_version": "v1.0.0",
+    "zenodo_version_doi": "10.5281/zenodo.21693669"
+  },
+  "immutable_release_tag": {
+    "commit": "0926e98f5fd8637018302c7c426f3af5505b6b73",
+    "name": "v1.0.0",
+    "post_release_metadata_branch": "main",
+    "tag_object": "448b04247549284443fc0094608ea21035b92999",
+    "tree": "dd3d7744449f90386cc91fa65a3ac96810528ade"
   },
   "repository": "terry0809000/beyond-macro-f1-pubmed-rct-public",
   "licenses": {
@@ -85,7 +105,7 @@
   },
   "source_notebook_sha256": "f41a9b1542f4a544eea2ff2085cc096743eb6f98d166a6e2dc0af4e96590ba13",
   "source_release": "PLOS_R1_REVIEWER_ALIGNED_G4_FINAL_EXPORT_COMPLETE_CLASSICAL_PARAMS_20260729",
-  "status": "passed_with_external_release_blockers",
+  "status": "passed_post_release_metadata_commit_pending",
   "test_evidence": {
     "canonical_release_assets": {
       "command": "independent local byte-count/SHA-256 read-back of canonical ZIP, public_deposit_manifest.csv, and SHA256SUMS",
@@ -97,7 +117,7 @@
     },
     "citation_metadata": {
       "command": "python -B <PyYAML safe_load CITATION.cff>",
-      "result": "valid YAML; no DOI claimed before GitHub-release archiving"
+      "result": "valid YAML; verified version DOI, concept DOI, and Zenodo record URL present"
     },
     "git_object_round_trip": {
       "command": "git add -A; git write-tree; git archive <tree> | extract; PYTHONPATH=src python -B -m plos_nlp_release <extracted-tree>",
@@ -119,9 +139,13 @@
       "command": "PYTHONPATH=src python -B -m pytest -q -p no:cacheprovider",
       "result": "4 passed"
     },
+    "zenodo_public_record": {
+      "command": "unauthenticated DOI resolution and record/API file inspection; independent download/hash/extraction verification",
+      "result": "passed; version DOI 10.5281/zenodo.21693669 and concept DOI 10.5281/zenodo.21693668 resolve; open Software v1.0.0 MIT record contains exactly one 2,014,751-byte generated repository ZIP (MD5 01e5fbfcdfc438cc481f03b188365508; SHA-256 9d84b61d2f6a133bfb4ca84bb28f5e51a231cb1243db9fef30d98cb92179b780); extracted verifier 86/86 and 4 tests passed; 64 MB GitHub evidence asset absent"
+    },
     "wheel_build": {
       "command": "python -B -m pip wheel . --no-deps --no-build-isolation --wheel-dir <temporary-directory>",
-      "result": "plos_nlp_release-1.0.0-py3-none-any.whl built successfully (22,961 bytes); wheel contains all three license/scope files; generated build caches removed from staging"
+      "result": "plos_nlp_release-1.0.0-py3-none-any.whl built successfully (23,788 bytes); wheel contains all three license/scope files; generated build caches removed from staging"
     }
   },
   "version": "1.0.0"

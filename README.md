@@ -34,17 +34,28 @@ asset because it is intentionally not committed to the repository.
 - Outer checksums bytes: `229`
 - Outer checksums SHA-256:
   `6f160158acba129753954b5aa2caff217c24f627a977d40611181039db8be56a`
-- Zenodo DOI: pending creation from Zenodo's archive of the GitHub `v1.0.0`
-  release. Insert only the identifier actually generated for that archived
-  tagged repository after it resolves.
+- Zenodo version DOI: `10.5281/zenodo.21693669`
+- Zenodo concept DOI: `10.5281/zenodo.21693668`
+- Zenodo record: <https://zenodo.org/records/21693669>
+- DOI verification: unauthenticated resolution returned HTTP 200 to the
+  record above.
+- Zenodo metadata observed: open `Software`, version `v1.0.0`, primary license
+  `MIT`.
+- Sole Zenodo file:
+  `terry0809000/beyond-macro-f1-pubmed-rct-public-v1.0.0.zip`
+- Zenodo file bytes: `2,014,751`
+- Zenodo file MD5: `01e5fbfcdfc438cc481f03b188365508`
+- Downloaded Zenodo file SHA-256:
+  `9d84b61d2f6a133bfb4ca84bb28f5e51a231cb1243db9fef30d98cb92179b780`
 
 The canonical ZIP contains 119 members, including `LICENSE`,
 `LICENSE-CONTENT-DATA-CC-BY-4.0.txt`, and `LICENSES.md`. Its deterministic
 rebuild, internal manifest/checksums, and security boundary were independently
-verified. The ZIP is a manually attached GitHub release asset. Zenodo's GitHub
-integration archives the tagged repository; do not assume that it also copies
-manually attached GitHub release assets. Inspect the eventual Zenodo record
-before describing the full ZIP as present there.
+verified. The ZIP is a manually attached GitHub release asset and was
+independently downloaded from GitHub with the byte count and SHA-256 above.
+Zenodo archived the immutable `v1.0.0` tagged repository as its own generated
+ZIP. The verified Zenodo record contains exactly that one 2,014,751-byte file;
+it does not contain the separate 64,461,196-byte sanitized evidence asset.
 
 The publication run completed with 16 final system/seed rows, 10,000
 complete-abstract bootstrap replicates per reported contrast, a locked
@@ -161,19 +172,21 @@ every excluded source-deposit file and the reason.
 
 The complete sanitized evidence ZIP and its companion
 `public_deposit_manifest.csv` and `SHA256SUMS` files are canonical GitHub
-release assets. Before publication:
+release assets. Publication verification established that:
 
-1. attach the exact verified ZIP, public manifest, and outer checksum file to
-   GitHub release `v1.0.0`;
-2. independently download the GitHub release assets and verify each byte count
-   and SHA-256 shown above;
-3. confirm that Zenodo's GitHub integration is enabled, then publish the
-   reviewed tag/release so Zenodo archives the tagged repository;
-4. inspect the generated Zenodo record and its files rather than assuming it
-   contains the manually attached GitHub release asset;
-5. verify the generated version and concept DOI(s) in a signed-out browser;
-6. update the manuscript Data Availability Statement, `CITATION.cff`, and this
-   README with only the verified identifier and observed archive contents.
+1. the canonical GitHub evidence ZIP was independently downloaded and matched
+   `64,461,196` bytes and SHA-256
+   `b6f4a158891784ea5f6f451d33d4e3a46ff42406afa582553a01f2fa381fddf4`;
+2. Zenodo archived the immutable tagged repository as the sole generated ZIP
+   listed above;
+3. the extracted Zenodo ZIP passed the repository verifier for all 86
+   manifested files and all four tests;
+4. the public Zenodo record does not contain the separate full evidence ZIP;
+   and
+5. both the version DOI and concept DOI resolve without authentication.
+
+The `v1.0.0` tag is immutable. DOI and record-content corrections belong in
+later main-branch metadata commits, not in a moved or recreated release tag.
 
 See `ZENODO_DEPOSIT_CHECKLIST.md`.
 
@@ -208,17 +221,18 @@ its own terms.
 
 ## Citation
 
-Versioned software citation metadata are in `CITATION.cff`. No DOI is claimed
-before Zenodo archives GitHub release `v1.0.0`; the generated DOI will be
-inserted only after it resolves publicly and the Zenodo record contents are
-inspected.
+Versioned software citation metadata are in `CITATION.cff`. Cite version
+`v1.0.0` with DOI <https://doi.org/10.5281/zenodo.21693669>. The concept DOI
+<https://doi.org/10.5281/zenodo.21693668> identifies the software across
+versions.
 
 ## Reproducibility scope
 
 The compact Git tables are sufficient to audit reported summaries and figures,
 but they are not a substitute for the complete sanitized GitHub release
-archive or the third-party input data. Whether the eventual Zenodo record also
-contains that manually attached ZIP must be verified from the record itself.
-Model-download availability, GPU hardware, and future package compatibility
-can change; immutable upstream commits, checkpoint revisions, package
-constraints, and the certified notebook are therefore recorded explicitly.
+archive or the third-party input data. The verified Zenodo record contains the
+generated tagged-repository ZIP only, not the manually attached full evidence
+ZIP. Model-download availability, GPU hardware, and future package
+compatibility can change; immutable upstream commits, checkpoint revisions,
+package constraints, and the certified notebook are therefore recorded
+explicitly.

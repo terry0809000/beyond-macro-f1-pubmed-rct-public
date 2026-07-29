@@ -24,10 +24,21 @@ def test_release_contract() -> None:
         report["release_archive"]["sha256"]
         == "b6f4a158891784ea5f6f451d33d4e3a46ff42406afa582553a01f2fa381fddf4"
     )
-    assert (
-        report["zenodo_integration"]["manual_github_release_asset_inclusion"]
-        == "not assumed; inspect the generated Zenodo record"
+    assert report["release_tag"]["commit"] == (
+        "0926e98f5fd8637018302c7c426f3af5505b6b73"
     )
+    assert report["zenodo_record"]["status"] == "verified_public"
+    assert (
+        report["zenodo_record"]["version_doi"]
+        == "10.5281/zenodo.21693669"
+    )
+    assert (
+        report["zenodo_record"]["concept_doi"]
+        == "10.5281/zenodo.21693668"
+    )
+    assert report["zenodo_record"]["file_count"] == 1
+    assert report["zenodo_record"]["file"]["bytes"] == 2_014_751
+    assert report["zenodo_record"]["manual_github_evidence_asset_present"] is False
 
 
 def test_primary_results_cover_all_locked_system_rows() -> None:

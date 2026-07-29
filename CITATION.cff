@@ -5,11 +5,17 @@ title: "Beyond Macro-F1: PubMed RCT sentence-classification reproducibility pack
 version: 1.0.0
 date-released: 2026-07-29
 license: MIT
+doi: "10.5281/zenodo.21693669"
 authors:
   - family-names: "Yu"
     given-names: "Tianyi"
     affiliation: "King's College London"
 repository-code: "https://github.com/terry0809000/beyond-macro-f1-pubmed-rct-public"
+url: "https://zenodo.org/records/21693669"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.21693668"
+    description: "Zenodo concept DOI for all versions of this software."
 keywords:
   - biomedical natural language processing
   - sentence classification
@@ -20,8 +26,10 @@ keywords:
 abstract: >-
   History-free source code, compact sanitized derived evidence, figures, and
   provenance for the verified PLOS ONE revision run
-  PLOS_R1_publication_20260729T084516Z. The Zenodo DOI for version 1.0.0 will
-  be inserted only after Zenodo archives the GitHub release and the generated
-  identifier is independently observed and verified. Author-generated
-  software is MIT licensed; author-generated documentation, figures, and
-  derived outputs are licensed CC BY 4.0.
+  PLOS_R1_publication_20260729T084516Z. Zenodo archived the immutable v1.0.0
+  tagged repository as record 21693669 (version DOI
+  10.5281/zenodo.21693669; concept DOI 10.5281/zenodo.21693668). The Zenodo
+  record contains its generated tagged-repository ZIP and does not contain the
+  separate full sanitized GitHub evidence asset. Author-generated software is
+  MIT licensed; author-generated documentation, figures, and derived outputs
+  are licensed CC BY 4.0.

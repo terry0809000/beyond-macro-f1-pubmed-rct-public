@@ -1,10 +1,12 @@
 # GitHub release and Zenodo archival checklist
 
-Do not invent or prefill a DOI. Zenodo's GitHub integration is configured to
-archive the first public `v1.0.0` release and mint its DOI. Record only the
-identifier actually generated from that archived tagged repository, after it
-resolves without authentication and the Zenodo record contents have been
-inspected.
+Zenodo archived the public `v1.0.0` tagged repository. The identifiers and
+record below were observed directly and resolved without authentication:
+
+- Version DOI: <https://doi.org/10.5281/zenodo.21693669>
+- Concept DOI: <https://doi.org/10.5281/zenodo.21693668>
+- Record: <https://zenodo.org/records/21693669>
+- Resolution: HTTP 200 to the record above
 
 ## Canonical GitHub release assets
 
@@ -30,10 +32,28 @@ license-inclusive GitHub release asset: 119 ZIP members, including the exact
 deterministic second build, manifest, internal checksums, and security scans
 passed.
 
-Zenodo's GitHub integration archives the tagged repository. Do not assume it
-also contains this manually attached GitHub release asset unless the generated
-Zenodo record is inspected and that file is observed there, or the asset is
-separately uploaded and independently verified.
+The full ZIP was independently downloaded from the GitHub release and matched
+the byte count and SHA-256 above.
+
+## Observed Zenodo record
+
+- Access: open
+- Resource type: `Software`
+- Version: `v1.0.0`
+- Primary license: `MIT`
+- Number of files: `1`
+- File:
+  `terry0809000/beyond-macro-f1-pubmed-rct-public-v1.0.0.zip`
+- Bytes: `2,014,751`
+- MD5: `01e5fbfcdfc438cc481f03b188365508`
+- Downloaded SHA-256:
+  `9d84b61d2f6a133bfb4ca84bb28f5e51a231cb1243db9fef30d98cb92179b780`
+- Extracted verification: repository verifier passed all `86` manifest rows;
+  `4` tests passed.
+
+The Zenodo record contains exactly the generated tagged-repository ZIP above.
+It does not contain the separate 64,461,196-byte manually attached GitHub
+evidence asset.
 
 ## Metadata
 
@@ -55,39 +75,31 @@ Apply the author-approved licensing boundary:
 - CC BY 4.0 for author-generated documentation, figures, figure source data,
   and derived outputs.
 
-If Zenodo presents a single primary-license field, describe the mixed-license
-boundary prominently in the record description. The tagged repository and
-canonical GitHub release ZIP both include `LICENSE`,
+Zenodo exposes `MIT` as the record's primary software license. The tagged
+repository and canonical GitHub release ZIP both include `LICENSE`,
 `LICENSE-CONTENT-DATA-CC-BY-4.0.txt`, and `LICENSES.md`. Do not imply that
 either license applies to excluded third-party PubMed text, pretrained models,
 libraries, fonts, or model weights.
 
-## Draft/reviewer workflow
+## Completed publication verification
 
-1. Confirm that this public repository is enabled in Zenodo's GitHub
-   integration.
-2. Attach the exact verified ZIP, `public_deposit_manifest.csv`, and
-   `SHA256SUMS` to GitHub release `v1.0.0`.
-3. Download the GitHub release assets and verify every byte count and SHA-256.
-4. Publish the reviewed tag/release so Zenodo archives the tagged repository.
-5. If peer review requires access before final publication, use only a
-   reviewer-access mechanism whose link is tested in a signed-out browser.
-   Do not commit a token-bearing preview URL to Git.
-6. Keep the DOI and manuscript language pending until Zenodo has generated the
-   identifier from the archived release.
+1. The three GitHub release assets were independently downloaded and matched
+   their recorded byte counts and hashes.
+2. The version and concept DOI resolved without authentication.
+3. Every Zenodo record file was inspected; only the generated repository ZIP
+   was present.
+4. The downloaded Zenodo ZIP matched its recorded size, MD5, and SHA-256.
+5. Its extracted repository passed the release verifier and tests.
+6. `README.md` and `CITATION.cff` now carry the verified identifiers and
+   observed record contents.
 
-## Publication verification
+## Post-release preservation rules
 
-1. Confirm that the approved MIT/CC BY 4.0 boundary and third-party exclusions
-   are visible on GitHub and in the generated Zenodo record.
-2. Independently download the three GitHub release assets and confirm their
-   exact byte counts and SHA-256 values.
-3. Inspect every file in the Zenodo record. Do not infer that Zenodo copied the
-   manually attached GitHub release ZIP.
-4. If the full ZIP is separately placed in Zenodo, independently download it
-   from Zenodo and confirm the same byte count and SHA-256.
-5. Resolve the generated version and concept DOI(s) in a signed-out browser.
-6. Add the verified DOI to `README.md`, `CITATION.cff`, and the manuscript Data
-   Availability Statement.
-7. Record the immutable Git commit and release tag related to the deposit.
-8. Rerun the repository verifier and preserve its JSON output outside Git.
+1. Keep the existing `v1.0.0` tag immutable.
+2. Place DOI and record-content corrections in later main-branch metadata
+   commits; do not recreate or move the tag.
+3. Continue to describe the full sanitized ZIP as a GitHub release asset, not
+   a Zenodo file, unless a future Zenodo record is independently observed to
+   contain that exact asset.
+4. Preserve the version DOI for citations of `v1.0.0` and the concept DOI for
+   references intended to follow future software versions.
