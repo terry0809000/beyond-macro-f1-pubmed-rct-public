@@ -1,3 +1,5 @@
+<p align="center"><img src="assets/project-cover.png" width="100%" alt="Conceptual scientific artwork for Beyond Macro-F1" /></p>
+
 # Beyond Macro-F1: PubMed RCT sentence classification
 
 Reproducibility code and sanitized derived evidence for:
